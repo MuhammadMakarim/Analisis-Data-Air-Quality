@@ -12,20 +12,13 @@ st.title("Dashboard Analisis Data Kualitas Udara - Proyek Akhir")
 # --- DATA LOADING ---
 
 # Pencarian otomatis file CSV di folder yang sama
-csv_files = glob("*.csv") 
-if len(csv_files) == 0:
-    st.error("Tidak ditemukan file CSV di folder ini. Pastikan dataset sudah diekstrak.")
-    st.stop()
-else:
-    main_file = None
-    for file in csv_files:
-        if 'air' in file.lower() or 'quality' in file.lower():
-            main_file = file
-            break
-    if main_file is None:
-        main_file = csv_files[0]  # fallback: ambil file pertama
-    st.success(f"Menggunakan dataset: **{main_file}**")
-    air_df = pd.read_csv(main_file, parse_dates=['datetime'])
+
+# URL file Google Drive  
+url = 'https://drive.google.com/uc?id=16FEIHlXfVrWpTiRg_dVfvtUw8x4cg1pJ'  
+
+# Memuat dataset  
+gdown.download(url, 'dataset.csv', quiet=False)  
+air_df = pd.read_csv('dataset.csv', parse_dates=['datetime'])
 
 # --- FILTER MARET 2013 ---
 march_df = air_df[(air_df['year'] == 2013) & (air_df['month'] == 3)].copy()
