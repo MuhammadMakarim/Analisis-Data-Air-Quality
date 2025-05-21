@@ -7,9 +7,7 @@ import gdown
 st.set_page_config(page_title="Air Quality Dashboard", layout="wide")
 st.title("Dashboard Analisis Data Kualitas Udara")
 
-# --- NARASI PROLOG ---
 st.markdown("""
-## Prolog Visualisasi
 
 Dashboard ini menyajikan analisis dan visualisasi data kualitas udara yang mencakup pengukuran berbagai polutan seperti PM2.5, PM10, SO2, NO2, CO, dan O3.  
 Pengguna dapat melakukan filter berdasarkan waktu, lokasi (stasiun), dan kategori kualitas udara untuk mengeksplorasi pola konsentrasi polutan secara mendalam.  
